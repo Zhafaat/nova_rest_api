@@ -23,3 +23,11 @@ jalankan cmd `npm i --save-dev sequelize-cli` yaitu perintah pada command line i
 kemudian jalankan cmd `npx sequelize-cli init`
 `sequelize-cli init` adalah perintah Sequelize CLI yang digunakan untuk membuat struktur direktori dan berkas konfigurasi yang dibutuhkan oleh Sequelize untuk bekerja dengan database. Ini akan membuat direktori `config` yang berisi file konfigurasi database, dan direktori models yang berisi definisi model-model aplikasi Anda.
 Setelah menjalankan `npx sequelize-cli init`, Anda akan memiliki struktur direktori yang dibutuhkan untuk memulai bekerja dengan Sequelize dan mengelola database Anda.
+
+Ubah file config/config.json, sesuaikan informasi login dengan informasi server MySQL Anda,
+jalankan cmd `npx sequelize db:create` yaitu perintah CLI Sequelize yang digunakan untuk membuat database baru. Ini akan membuat database baru dengan nama yang ditentukan dalam file konfigurasi config.json.
+Perintah ini harus dijalankan setelah Anda berhasil membuat koneksi dengan server MySQL dan sudah memiliki file konfigurasi config.json yang dikonfigurasi dengan informasi login dan nama database yang diinginkan.
+
+apabila anda belum menginstal librari mysql2, maka jalankan cmd `npm i mysql2` yaitu perintah NPM yang digunakan untuk menginstal modul mysql2 sebagai dependensi project Anda. Modul ini adalah implementasi JavaScript dari klien MySQL yang dapat digunakan untuk mengkoneksikan aplikasi Node.js dengan server MySQL.
+Setelah menjalankan perintah npm i mysql2, modul mysql2 akan ditambahkan ke daftar dependensi proyek Anda di file package.json, dan bisa digunakan. 
+apabila librari mysql2 sudah terinstal jalankan cmd `npx sequelize db:create`
