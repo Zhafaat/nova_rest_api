@@ -53,5 +53,12 @@ file seeder berfungsi untuk menambahkan data faker ke dalam tabel yang telah dib
 Jalankan perintah "npx sequelize db:seed:all" untuk menjalankan semua file seed yang ada pada aplikasi.
 Atau, jalankan perintah "npx sequelize db:seed --seed namafile" untuk menjalankan file seed tertentu yang ingin dijalankan.
 Dengan menjalankan salah satu perintah tersebut, akan mengisi data yang telah ditentukan pada file seed ke dalam tabel yang sesuai pada aplikasi.
+    --file index.js untuk menjalankan server
+pada file ini Anda perlu mengimport express, cors, menggunakan sintsaks: 
+`const express = require('express')`
+`const cors = require('cors')`
+`const app = express()` membuat instance dari aplikasi Express.
+`app.use(cors())` menambahkan CORS sebagai middleware aplikasi.
+`app.listen(port, () => { ... })` memulai server aplikasi dan mendengarkan permintaan dari client pada port yang ditentukan.
 
 
