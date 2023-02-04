@@ -19,3 +19,7 @@ Setelah menjalankan perintah `npm i`, paket-paket tersebut akan diunduh dan disi
 folder node_modules akan terbuat secara otomatis setelah menjalankan perintah `npm i`. Folder ini memiliki ukuran yang besar dan dapat memperlambat proses commit di repository, oleh karena itu Anda perlu membuat file .gitignore dan menuliskan node_modules didalamnya.
 Tindakan ini akan mengeliminasi folder node_modules dari proses commit di repository.
 
+jalankan cmd `npm i --save-dev sequelize-cli` yaitu perintah pada command line interface (CLI) Node Package Manager (npm) yang digunakan untuk menginstal paket Sequelize CLI. --save-dev adalah opsi yang digunakan untuk menandai bahwa paket tersebut hanya dibutuhkan untuk lingkungan pengembangan, bukan lingkungan produksi.
+kemudian jalankan cmd `npx sequelize-cli init`
+`sequelize-cli init` adalah perintah Sequelize CLI yang digunakan untuk membuat struktur direktori dan berkas konfigurasi yang dibutuhkan oleh Sequelize untuk bekerja dengan database. Ini akan membuat direktori `config` yang berisi file konfigurasi database, dan direktori models yang berisi definisi model-model aplikasi Anda.
+Setelah menjalankan `npx sequelize-cli init`, Anda akan memiliki struktur direktori yang dibutuhkan untuk memulai bekerja dengan Sequelize dan mengelola database Anda.
