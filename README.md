@@ -41,5 +41,17 @@ Setelah membuat file model, Anda harus menjalankan perintah `npx sequelize db:mi
     --membuat tabel transakses
 Untuk menyimpan data transaksi yang terjadi, buat tabel baru dengan kolom id, product_id, tanggal_transaksi, stock_keluar, dan total_harga.
 lakukan prosedur pembuatan tabel seperti dipenjelasan sebelumnya.
+    --dummy/Data Faker
+data faker dibuat didalam folder data_faker. Data dibuat per file per tabel, penamaan file javascript sesuai dengan nama tabel. Data dibuat menggunakan kode JavaScript yang membuat sebuah class bernama "namaTabelData". class ini memiliki sebuah constructor yang menetapkan properti bernama "dataFaker" sebagai tempat nenuliskan data tabel dalam array of objects. Setelah kelas didefinisikan, ia di-export sebagai modul menggunakan pernyataan "module.exports".
+Dengan kata lain, kelas ini akan membuat sebuah objek yang mewakili kategori data dan memiliki properti dataFaker sebagai array of objects yang dapat diakses oleh modul lain.
+    --seeders
+cmd "npx sequelize seed:generate --name namafile" adalah perintah CLI (Command Line Interface) untuk membuat file seed baru pada aplikasi Sequelize.
+file seeder berfungsi untuk menambahkan data faker ke dalam tabel yang telah dibuat. Didalam filenya Anda perlu mengimport file dari data_faker yang berisi data yang akan diinsert ke tabel. 
+`async up (queryInterface, Sequelize)` adalah fungsi untuk menambahkan data pada tabel. Dalam fungsi ini, Anda perlu membuat objek berisikan dataFaker dan memanggil fungsi `await queryInterface.bulkInsert()` untuk menambahkan data yang ditentukan dalam file seeder ke dalam tabel.
+`async down (queryInterface, Sequelize)` adalah fungsi untuk menghapus semua data pada tabel. Dalam fungsi ini, memanggil fungsi `await queryInterface.bulkDelete()` untuk menghapus semua data pada tabel.
+    --mengisi data faker ke dalam tabel
+Jalankan perintah "npx sequelize db:seed:all" untuk menjalankan semua file seed yang ada pada aplikasi.
+Atau, jalankan perintah "npx sequelize db:seed --seed namafile" untuk menjalankan file seed tertentu yang ingin dijalankan.
+Dengan menjalankan salah satu perintah tersebut, akan mengisi data yang telah ditentukan pada file seed ke dalam tabel yang sesuai pada aplikasi.
 
 
