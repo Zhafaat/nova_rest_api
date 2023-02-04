@@ -8,3 +8,14 @@ selanjutya, menghubungkan lokal repository dengan global repository yaitu GitHub
 Pertama buat repository baru di akun GitHub. Setelah terbuat, secara otomatis akan di tampilkan tutorial untuk menghubungkan local repository Anda dengan GitHub.
 Anda harus memilih salah satu jalur yang disediakan, dan menjalankan cmd yang di sediakan satu per satu di terminal Anda.
 
+jelankan cmd `npm i sequelize mysql express cors` dimana perintah pada command line interface (CLI) Node Package Manager (npm) yang digunakan untuk menginstal paket-paket Node.js. Ini berarti:
+
+`sequelize`: adalah library ORM (Object-Relational Mapping) untuk Node.js yang memudahkan pembuatan dan manipulasi database dalam aplikasi.
+`mysql`: adalah driver database untuk MySQL yang digunakan oleh Sequelize untuk berkomunikasi dengan database MySQL.
+`express`: adalah framework web untuk Node.js yang mempermudah pembuatan aplikasi web.
+`cors`: adalah library untuk Node.js yang mempermudah mengatur akses Cross-Origin Resource Sharing (CORS) dalam aplikasi web.
+Setelah menjalankan perintah `npm i`, paket-paket tersebut akan diunduh dan disimpan sebagai dependensi pada direktori project, dan dapat digunakan dalam aplikasi Anda.
+
+folder node_modules akan terbuat secara otomatis setelah menjalankan perintah `npm i`. Folder ini memiliki ukuran yang besar dan dapat memperlambat proses commit di repository, oleh karena itu Anda perlu membuat file .gitignore dan menuliskan node_modules didalamnya.
+Tindakan ini akan mengeliminasi folder node_modules dari proses commit di repository.
+
