@@ -11,12 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      kategoris.hasOne(models.products, {
+        foreignKey: {
+          name: 'kategori_id'
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   kategoris.init({
     id: {
       type: DataTypes.INTEGER,
-    primaryKey:true
+      primaryKey:true
     },
     nama: DataTypes.STRING,
     deskripsi: DataTypes.TEXT,

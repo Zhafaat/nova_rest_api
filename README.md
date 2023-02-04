@@ -60,5 +60,25 @@ pada file ini Anda perlu mengimport express, cors, menggunakan sintsaks:
 `const app = express()` membuat instance dari aplikasi Express.
 `app.use(cors())` menambahkan CORS sebagai middleware aplikasi.
 `app.listen(port, () => { ... })` memulai server aplikasi dan mendengarkan permintaan dari client pada port yang ditentukan.
+    --membuat request API
+proses pembuatan dimulai dari membuat folder routes, folder ini berisikan file js untuk membuat router API per tabel.
+setiap file berisian 
+`const { Router } = require("express");` : menggunakan destructuring assignment untuk mengambil objek Router dari module express yang di-require.
+`const router = Router()` : membuat instance dari objek Router dengan menggunakan method Router().
+`module.exports = router;`: mengekspor objek router sehingga dapat digunakan di module lain.
+
+`router` berguna untuk memilah pembuatan API sehingga semua codingan API tidak harus bertumpuk di satu file.
+
+untuk membuat satu API, harus ditentukan :
+1. method, pada codingan yang saya buat hanya menggunakan method get karena fungsi yang diminta adalah menampilkan data dari database. akan tetapi masih ada beberapa method lainnya yang bisa di gunakan peserti post, put, dan delete.
+2. path: untuk satu jenis method di beberapa API sebaiknya memiliki path yang berbeda-beda, untuk path yang saya buat saya sesuaikan dengan fungsi API yang diminta.
+3. callback function, function memiliki parameter req, res, dan next. functioon ini berguna untuk menangani permintaan dari user (req), dan memberikan hasil sesuai dengan kebutuhan user (res). Callback function ini dibuat didalam class pada folder controller. sehingga bisa funtionnya bisa digunakan berulang-ulang dimana file manapun dan mengurangi tindakan DRY.
+
+semua API yang dibuat ditiap filenya masing-masing di kumpulkan di dalam file index.js di folder routes kemudian berikan path tambahan yaitu nama tabelnya masing-masing. untuk penambahan path ini digunakan middleware dari express (use).
+
+muara terakhir dari API yaitu di file index.js tempat server dijalankan. semua router di panggil dengan mengimport router dari folder routes.
+`const router = require('./routes');`
+untuk menjalankan server bisa dengan menggunakan cmd `node index.js` atau `nodemon index.js` pada terminal project Anda. 
+
 
 

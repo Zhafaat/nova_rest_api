@@ -11,10 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      stocks.belongsTo(models.products)
     }
   }
   stocks.init({
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     product_id: DataTypes.INTEGER,
     stock: DataTypes.STRING,
     created_at: DataTypes.DATE,

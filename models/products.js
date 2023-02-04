@@ -11,10 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      products.belongsTo(models.kategoris);
+
+      products.hasOne(models.stocks, {
+        foreignKey: {
+          name: 'product_id'
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
+      })
+
+      products.hasMany(models.transaksis, {
+        foreignKey: {
+          name: 'product_id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   products.init({
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     kategori_id: DataTypes.INTEGER,
     tahun_keluaran: DataTypes.STRING,
     warna: DataTypes.STRING,
