@@ -1,3 +1,45 @@
+documentasi API
+
+GET
+stockProduct
+http://localhost:3000/kategoris/stockProduct
+lihat stock product
+
+GET
+stockProduct by id
+http://localhost:3000/kategoris/stockProduct/1
+lihat satu stock product per id
+
+GET
+transaksi
+http://localhost:3000/transaksis/transaksi
+lihat semua laporan penjualan product
+
+GET
+transaksi by id
+http://localhost:3000/transaksis/transaksi/3
+lihat satu laporan penjualan product per bulan per transaksi id
+
+GET
+transaksi in a month
+http://localhost:3000/transaksis/transaksiPerBulan
+laporan penjualan product per bulan
+Body
+urlencoded
+month
+2
+
+GET
+productKategoris
+http://localhost:3000/products/productKategoris
+lihat semua product per kategori
+
+GET
+productKategoris by id
+http://localhost:3000/products/productKategoris/3
+lihat satu product kategori per id    
+
+    
     --membuat direktori dan lokal repository
 langkah awal membuat sebuah project adalah menyiapkan direktori project. Kemudian direktori dibuatkan repository Git menggunakan cmd `git init` pada terminal direktori saat ini. Cmd ini berarti menginisialisasi sebuah direktori sebagai repositori Git, membuat direktori .git yang berisi informasi tentang konfigurasi dan sejarah revisi dari project.
     --package.json
