@@ -125,8 +125,7 @@ untuk menjalankan server bisa dengan menggunakan cmd `node index.js` atau `nodem
 errorHandler adalah sebuah function pada class middleware didalam file middleware.js difolder middleware. function middleware memiliki 4 parameter: `err`, `req`, `res`, dan `next`.
 function ini digunakan sebagai middleware untuk menangani error pada aplikasi. Error bisa datang dari berbagai sumber seperti database, operasi yang tidak valid, atau kesalahan server. 
 funtion ini bertindak sebagai middleware dan membutuhkan `next` sebagai parameter untuk memastikan bahwa proses pemrosesan request tetap berlanjut setelah error ditangani.
-
-
-
-
-
+    --WebToken
+class Webtoken yang dibuat di file webToken.js di folder helper, memiliki dua funtion. 
+pertama function bernama `getToken`. Function ini memiliki satu parameter, yaitu `payload`. Function ini digunakan untuk membuat token JWT (JSON Web Token) dari payload yang diberikan. Didalamnya terdapat `jwt.sign()` dari library `jsonwebtoken` digunakan untuk membuat token dengan menggabungkan payload dan secret key. Token yang dibuat akan dikembalikan sebagai hasil dari function ini. Token ini dapat digunakan untuk menyimpan informasi yang berkaitan dengan sesi pengguna dan untuk memvalidasi identitas pengguna pada saat melakukan request ke server.
+kedua function bernama `hasToken` yang memiliki satu parameter, yaitu `token`. function ini bersifat asynchronous. function ini digunakan untuk memvalidasi token JWT yang diterima. didalamnya terdapat `jwt.verify()` dari library `jsonwebtoken` digunakan untuk memverifikasi keabsahan token dengan menggunakan secrey key. secret key yang digunakan harus sama dengan secret key yang digunakan saat membuat token. jika token valid, maka functionnya akan memngembalikan nilai `decode` yang berisi informasi yang dikenakan pada token. jika token tidak valid, maka function akan melemparkan error yang berisi status HTTP 401 (Unauthorized) dan pesan "Please Login". Error ini akan menandakan bahwa pengguna harus login kembali untuk mendapatkan token baru.
