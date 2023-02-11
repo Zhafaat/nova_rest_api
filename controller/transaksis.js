@@ -9,8 +9,7 @@ class TransaksisController {
             join kategoris k on p.kategori_id = k.id ;`) 
             res.status(200).json(data[0])
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: 'bad request'})          
+            next(error)          
         }
     }
 
@@ -21,10 +20,16 @@ class TransaksisController {
             join products p on t.product_id = p.id 
             join kategoris k on p.kategori_id = k.id 
             where t.id = ${id};`)
-            res.status(200).json(data[0])
+            if (!data[0].length) {
+                throw {
+                    status: 404,
+                    msg: 'Not Found'
+                }
+            } else {
+                res.status(200).json(data[0])
+            }
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: 'bad request'})            
+            next(error)            
         }
     }
 
@@ -35,10 +40,16 @@ class TransaksisController {
             join products p on t.product_id = p.id 
             join kategoris k on p.kategori_id = k.id 
             where month(t.tanggal_transaksi) = ${month};`)
-            res.status(200).json(data[0])
+            if (!data[0].length) {
+                throw {
+                    status: 404,
+                    msg: 'Not Found'
+                }
+            } else {
+                res.status(200).json(data[0])
+            }
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: 'bad request'})
+            next(error)
         }
     }
 }

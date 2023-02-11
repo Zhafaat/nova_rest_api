@@ -7,8 +7,7 @@ class ProductsController {
             join kategoris k on p.kategori_id = k.id ;`)
             res.status(200).json(data[0])
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: 'bad request'})            
+            next(error)            
         }
     }
 
@@ -18,10 +17,17 @@ class ProductsController {
             const data = await sequelize.query(`select p.id , k.nama , p.tahun_keluaran , p.warna , p.harga  from products p 
             join kategoris k on p.kategori_id = k.id 
             where p.id = ${id} ;`)
-            res.status(200).json(data[0])
+            if (!data[0].length) {
+                throw {
+                    status: 404,
+                    msg: 'Not Found'
+                }
+            } else {
+                res.status(200).json(data[0])
+                
+            }
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: 'bad request'})            
+            next(error)            
         }
     }
 }

@@ -121,6 +121,12 @@ semua API yang dibuat ditiap filenya masing-masing di kumpulkan di dalam file in
 muara terakhir dari API yaitu di file index.js tempat server dijalankan. semua router di panggil dengan mengimport router dari folder routes.
 `const router = require('./routes');`
 untuk menjalankan server bisa dengan menggunakan cmd `node index.js` atau `nodemon index.js` pada terminal project Anda. 
+    --errorHandler
+errorHandler adalah sebuah function pada class middleware didalam file middleware.js difolder middleware. function middleware memiliki 4 parameter: `err`, `req`, `res`, dan `next`.
+function ini digunakan sebagai middleware untuk menangani error pada aplikasi. Error bisa datang dari berbagai sumber seperti database, operasi yang tidak valid, atau kesalahan server. 
+funtion ini bertindak sebagai middleware dan membutuhkan `next` sebagai parameter untuk memastikan bahwa proses pemrosesan request tetap berlanjut setelah error ditangani.
+
+
 
 
 

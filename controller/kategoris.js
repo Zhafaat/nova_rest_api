@@ -9,8 +9,7 @@ class KategorisController {
             join stocks s on p.id = s.product_id; `)
             res.status(200).json(data[0])
         } catch (error) {
-            console.log(error)
-            res.status(400).json({message: "bad request"})        
+            next(error)
         }
     }
 
@@ -21,10 +20,16 @@ class KategorisController {
             join products p on k.id = p.kategori_id  
             join stocks s on p.id = s.product_id 
             where k.id = ${id}; `)
-            res.status(200).json(data[0])
+            if (!data[0].length) {
+                throw {
+                    status: 404,
+                    msg: 'Not Found'
+                }
+            } else {
+                res.status(200).json(data[0])
+            }
         } catch (error) {
-          console.log(error)
-          res.status(400).json({message: 'bad request'})  
+            next(error)
         }
     }
 }
