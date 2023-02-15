@@ -6,7 +6,7 @@ class WebTOken {
         return token
     }
 
-    async hasToken(token){
+    static async hasToken(token){
         try {
              const decode = await jwt.verify(token, 'zhafaat')
              return decode                           

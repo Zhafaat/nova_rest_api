@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors');
 const router = require('./routes');
-const middleware = require('./middleware/middleware');
+const { errorHandler } = require('./middleware');
 
 app.use(cors())
 
@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.use(router)
 
-app.use(middleware.errorHandler)
+app.use(errorHandler)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
