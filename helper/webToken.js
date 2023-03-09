@@ -11,10 +11,11 @@ class WebTOken {
              const decode = await jwt.verify(token, 'zhafaat')
              return decode                           
         } catch (error) {
-            throw {
-                status: 401,
-                msg: 'Please Login'
-            }
+            console.log(error)
+            // throw {
+            //     status: 401,
+            //     msg: 'Please Login'
+            // }
         }
     }
 }
